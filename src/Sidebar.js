@@ -19,7 +19,6 @@ class Sidebar extends Component {
           src={menuIcon}
           class="menu-icon"
           onClick={() => {
-            console.log({ open: this.state.open, notOpen: !this.state.open });
             this.setState({
               open: !this.state.open
             });

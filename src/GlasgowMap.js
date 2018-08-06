@@ -1,20 +1,23 @@
 import React, { Component } from "react";
-//import GoogleMapReact from "google-map-react";
 import "./GlasgowMap.css";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
-//'https://maps.googleapis.com/maps/api/js?key=AIzaSyA129edK8SHKOZZTNlznzqYF8zuNfSY6Pg&callback=initMap'
-
+// https://github.com/fullstackreact/google-maps-react/issues/51#issuecomment-410825880
 const Markers = props =>
-  props.artLocations.map(marker => (
+  props.markers.map(marker => (
     <Marker
       {...props}
       key={marker.id}
       title={marker.name}
       name={marker.name}
       position={marker.location}
-      onClick={props.onMarkerClick}
       image={marker.image}
+      icon={
+        props.activeMarker.name === marker.name
+          ? "/marker.png"
+          : "/markeractive.png"
+      }
+      onClick={props.onMarkerClick}
     />
   ));
 
@@ -31,7 +34,6 @@ export class GlasgowMap extends Component {
   };
 
   handleMarkerClick = (props, marker, e) =>
-    console.log(props.image) ||
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -39,6 +41,7 @@ export class GlasgowMap extends Component {
     });
 
   render() {
+    console.log("active marker", this.state.activeMarker);
     return (
       <Map
         role="application"
@@ -50,7 +53,11 @@ export class GlasgowMap extends Component {
           lng: -4.253887
         }}
       >
-        <Markers {...this.props} onMarkerClick={this.handleMarkerClick} />
+        <Markers
+          activeMarker={this.state.activeMarker}
+          markers={this.props.artLocations}
+          onMarkerClick={this.handleMarkerClick}
+        />
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
