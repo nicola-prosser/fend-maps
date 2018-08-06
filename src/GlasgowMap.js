@@ -41,7 +41,6 @@ export class GlasgowMap extends Component {
     });
 
   render() {
-    console.log("active marker", this.state.activeMarker);
     return (
       <Map
         role="application"

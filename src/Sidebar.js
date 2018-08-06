@@ -38,7 +38,15 @@ class Sidebar extends Component {
           <div className="listing">
             <ol>
               {this.props.artLocations.map(location => (
-                <li key={location.id}>{location.name}</li>
+                <li
+                  onClick={() => this.props.onSelectMarker(location.id)}
+                  key={location.id}
+                  className={
+                    location.id === this.props.activeMarkerId ? "active" : ""
+                  }
+                >
+                  {location.name}
+                </li>
               ))}
             </ol>
           </div>

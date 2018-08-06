@@ -115,11 +115,27 @@ const artLocations = [
 ];
 
 class App extends Component {
+  state = {
+    activeMarkerId: ""
+  };
+  updateActiveMarker = clickedMarker => {
+    this.setState({
+      activeMarkerId: clickedMarker
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <Sidebar artLocations={artLocations} />
-        <GlasgowMap artLocations={artLocations} />
+        <Sidebar
+          artLocations={artLocations}
+          onSelectMarker={this.updateActiveMarker}
+          activeMarkerId={this.state.activeMarkerId}
+        />
+        <GlasgowMap
+          artLocations={artLocations}
+          onSelectMarker={this.updateActiveMarker}
+        />
       </div>
     );
   }
