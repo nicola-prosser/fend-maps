@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
-import "./Search.js";
 import menuIcon from "./icons/menu.svg";
 
 class Sidebar extends Component {
@@ -10,6 +9,8 @@ class Sidebar extends Component {
 
   render() {
     return (
+      //this opens and closes the sidebar for responsiveness - available on phones/tablets.
+      //manu always open on desktop. hambuger menu will be invisble on desktop
       <nav
         className={`SidebarContainer ${
           this.state.open === true ? "" : "hidden"
@@ -17,7 +18,10 @@ class Sidebar extends Component {
       >
         <img
           src={menuIcon}
-          class="menu-icon"
+          role="menu"
+          aria-label="button"
+          alt="hambuger menu icon, opens sidebar"
+          className="menu-icon"
           onClick={() => {
             this.setState({
               open: !this.state.open
@@ -25,24 +29,26 @@ class Sidebar extends Component {
           }}
         />
         <div className="menu">
-          <h1>
+          <h1 className="menu-title">
             Glasgow <br /> Art Scene
           </h1>
 
           <input
             type="text"
             aria-label="Filter map markers"
+            tabIndex="0"
             placeholder="filter map results"
+            onChange={e => this.props.onSearch(e.target.value)}
           />
 
           <div className="listing">
             <ol>
               {this.props.artLocations.map(location => (
                 <li
-                  onClick={() => this.props.onSelectMarker(location.id)}
+                  onClick={() => this.props.onSelectMarker(location)}
                   key={location.id}
                   className={
-                    location.id === this.props.activeMarkerId ? "active" : ""
+                    location.id === this.props.activeMarker.id ? "active" : ""
                   }
                 >
                   {location.name}
