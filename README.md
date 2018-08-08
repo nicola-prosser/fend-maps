@@ -17,6 +17,10 @@ Run npm install
 Run npm start
 The application will open in your browser at the address: localhost:3000
 
+the service worker is available:
+npm run serve
+Then visit localhost:5000
+
 ###Dependencies
 You will need npm
 The project was built using React
