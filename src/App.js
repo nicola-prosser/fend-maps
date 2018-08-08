@@ -4,12 +4,22 @@ import "./App.css";
 import GlasgowMap from "./GlasgowMap.js";
 import Sidebar from "./Sidebar.js";
 
+import artclub from "./images/artclub.jpg";
+import cca from "./images/cca.jpg";
+import goma from "./images/goma.jpg";
+import goodpress from "./images/goodpress.jpg";
+import gsa from "./images/gsa.jpg";
+import hairdressers from "./images/hairdressers.jpg";
+import lighthouse from "./images/lighthouse.jpg";
+import modern from "./images/modern.jpg";
+import trongate from "./images/trongate.jpg";
+
 const artLocations = [
   {
     id: 1,
     name: "Centre for Contemporary Arts (CCA)",
     image: {
-      src: "./images/ccs.jpg",
+      src: cca,
       alt:
         "The Main enterance for the CCA -showing the reception and Welcome Home, the CCA shop"
     },
@@ -25,7 +35,7 @@ const artLocations = [
     id: 2,
     name: "Glasgow School of Art",
     image: {
-      src: "https://farm3.staticflickr.com/2817/12927752795_fa548640cd_b.jpg",
+      src: gsa,
 
       alt: "The Glasgow School of Art Reid Building and the Mackintosh Building"
     },
@@ -41,7 +51,7 @@ const artLocations = [
     id: 3,
     name: "Modern Institute",
     image: {
-      src: "https://www.themoderninstitute.com/img/5605683554e73-large.jpg",
+      src: modern,
       alt:
         "An interior shot of one of the gallery spaces within Modern Institute, the walls are covered in colourful artwork"
     },
@@ -57,8 +67,7 @@ const artLocations = [
     id: 4,
     name: "Gallery of Modern Art (GOMA)",
     image: {
-      src:
-        "https://www.whatsonnetwork.co.uk/uploads/800x600/34ccdc7fb25fbe8660935f17378bfcf5.jpg",
+      src: goma,
       alt: "The Gallery of Modern Art (GOMA) Exterior in Royal Exhange Square"
     },
     location: {
@@ -73,8 +82,7 @@ const artLocations = [
     id: 5,
     name: "Lighthouse",
     image: {
-      src:
-        "https://www.scotsmagazine.com/wp-content/uploads/sites/7/2015/02/lighthouseMichaelWurstbauer.jpg",
+      src: lighthouse,
       alt: "An exterior shot of the Lighthouse frontage"
     },
     location: {
@@ -89,7 +97,7 @@ const artLocations = [
     id: 6,
     name: "The Old Hairdressers",
     image: {
-      src: "https://media.timeout.com/images/101770303/630/472/image.jpg",
+      src: hairdressers,
       alt: "The bar area of the Old Hairdressers"
     },
     location: {
@@ -104,8 +112,7 @@ const artLocations = [
     id: 7,
     name: "Good Press",
     image: {
-      src:
-        "http://glasgowinternational.org/wp-content/uploads/2017/12/GOOD_PRESS_2017.jpg",
+      src: goodpress,
       alt: "An exterior image of the Good Press shop"
     },
     location: {
@@ -120,8 +127,7 @@ const artLocations = [
     id: 8,
     name: "The Glasgow Art Club",
     image: {
-      src:
-        "https://ichef.bbci.co.uk/news/1024/media/images/79163000/jpg/_79163620_muralfive.jpg",
+      src: artclub,
       alt: "The main hall of the Glasgow Art Club"
     },
     location: {
@@ -139,8 +145,7 @@ const artLocations = [
     desc:
       "Trongate 103 is an arts resource for Glasgow, housed over six stories of a former Edwardian warehouse.",
     image: {
-      src:
-        "http://elder.phantom.whitespectre.net/images/projects/K-Hunter_T103-1009-0082.jpg",
+      src: trongate,
       alt:
         "An interior image showing the Project Ability Studios, part of the Trongate 103 complex"
     },
