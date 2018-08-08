@@ -9,8 +9,7 @@ const artLocations = [
     id: 1,
     name: "Centre for Contemporary Arts (CCA)",
     image: {
-      src:
-        "https://static1.squarespace.com/static/51af9b9be4b07ac195fca7ca/t/52402d88e4b0019d4f5ebea9/1517932789568/CCA+Foyer.jpg",
+      src: "./images/ccs.jpg",
       alt:
         "The Main enterance for the CCA -showing the reception and Welcome Home, the CCA shop"
     },
@@ -182,6 +181,8 @@ class App extends Component {
           google={this.props.google}
         />
         <GlasgowMap
+          role="application"
+          tabIndex={-1}
           artLocations={this.state.artLocations}
           onSelectMarker={this.updateActiveMarker}
           activeMarker={this.state.activeMarker}

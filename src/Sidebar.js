@@ -29,22 +29,26 @@ class Sidebar extends Component {
           }}
         />
         <div className="menu">
-          <h1 className="menu-title">
-            Glasgow <br /> Art Scene
-          </h1>
+          <heading>
+            <h1 className="menu-title">
+              Glasgow <br /> Art Scene
+            </h1>
 
-          <input
-            type="text"
-            aria-label="Filter map markers"
-            tabIndex="0"
-            placeholder="filter map results"
-            onChange={e => this.props.onSearch(e.target.value)}
-          />
-
+            <input
+              type="text"
+              aria-label="Filter map markers"
+              tabIndex="0"
+              placeholder="filter map results"
+              onChange={e => this.props.onSearch(e.target.value)}
+            />
+          </heading>
           <div className="listing">
+            <h3>Locations in the City Centre</h3>
             <ol>
               {this.props.artLocations.map(location => (
                 <li
+                  tabIndex="0"
+                  role="button"
                   onClick={() => this.props.onSelectMarker(location)}
                   key={location.id}
                   className={

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-//import GoogleMapReact from "google-map-react";
 import "./GlasgowMap.css";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import markerIcon from "./icons/marker.png";
+import markerActive from "./icons/markeractive.png";
 
 // managed to make the markers work with the help of this comment https://github.com/fullstackreact/google-maps-react/issues/51#issuecomment-410825880
 const Markers = props =>
@@ -15,11 +16,7 @@ const Markers = props =>
       image={marker.image}
       address={marker.address}
       desc={marker.desc}
-      icon={
-        props.activeMarker.name === marker.name
-          ? "/markeractive.png"
-          : "/marker.png"
-      }
+      icon={props.activeMarker.name === marker.name ? markerActive : markerIcon}
       onClick={props.onMarkerClick}
     />
   ));
@@ -47,6 +44,7 @@ export class GlasgowMap extends Component {
     return (
       <Map
         role="application"
+        aria-label="Map showing Glasgow City Centre"
         tabIndex="-1"
         google={this.props.google}
         zoom={14}
