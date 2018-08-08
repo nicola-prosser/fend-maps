@@ -6,17 +6,15 @@ import markerActive from "./icons/markeractive.png";
 
 // managed to make the markers work with the help of this comment https://github.com/fullstackreact/google-maps-react/issues/51#issuecomment-410825880
 const Markers = props =>
-  props.markers.map(marker => (
+  props.locations.map((location, index) => (
     <Marker
       {...props}
-      key={marker.id}
-      title={marker.name}
-      name={marker.name}
-      position={marker.location}
-      image={marker.image}
-      address={marker.address}
-      desc={marker.desc}
-      icon={props.activeMarker.name === marker.name ? markerActive : markerIcon}
+      {...location}
+      key={location.id}
+      title={location.name}
+      icon={
+        props.activeMarker.name === location.name ? markerActive : markerIcon
+      }
       onClick={props.onMarkerClick}
     />
   ));
@@ -55,8 +53,8 @@ export class GlasgowMap extends Component {
       >
         <Markers
           activeMarker={this.state.activeMarker}
-          markers={this.props.artLocations}
           onMarkerClick={this.handleMarkerClick}
+          locations={this.props.locations}
         />
         <InfoWindow
           marker={this.state.activeMarker}

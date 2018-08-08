@@ -45,7 +45,7 @@ class Sidebar extends Component {
           <div className="listing">
             <h3>Locations in the City Centre</h3>
             <ol>
-              {this.props.artLocations.map(location => (
+              {this.props.locations.map(location => (
                 <li
                   tabIndex="0"
                   role="button"
