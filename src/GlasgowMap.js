@@ -11,7 +11,10 @@ const Markers = props =>
       {...props}
       {...location}
       key={location.id}
-      title={location.name}
+      ref={instance => {
+        // add the Marker instance to an array of references
+        props.refs[index] = instance;
+      }}
       icon={
         props.activeMarker.name === location.name ? markerActive : markerIcon
       }
@@ -31,7 +34,25 @@ export class GlasgowMap extends Component {
     selectedPlace: {}
   };
 
-  handleMarkerClick = (props, marker, e) =>
+  // store all the Marker instances in an array
+  markers = [];
+
+  componentDidMount() {
+    // Show InfoWinodw for the initial activeLocation
+    // Run in next tick of the event loop so that the reference's marker obejct is fully initialised
+    const activeIndex = this.props.locations.indexOf(this.props.activeLocation);
+    if (activeIndex === -1) return;
+    const instance = this.markers[activeIndex];
+    instance.markerPromise.then(marker => {
+      console.log(marker);
+      this.handleMarkerClick(
+        this.props.locations[activeIndex],
+        this.markers[activeIndex].marker
+      );
+    });
+  }
+
+  handleMarkerClick = (props, marker) =>
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -52,6 +73,7 @@ export class GlasgowMap extends Component {
         }}
       >
         <Markers
+          refs={this.markers}
           activeMarker={this.state.activeMarker}
           onMarkerClick={this.handleMarkerClick}
           locations={this.props.locations}

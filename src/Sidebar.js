@@ -29,7 +29,7 @@ class Sidebar extends Component {
           }}
         />
         <div className="menu">
-          <heading>
+          <header>
             <h1 className="menu-title">
               Glasgow <br /> Art Scene
             </h1>
@@ -41,7 +41,7 @@ class Sidebar extends Component {
               placeholder="filter map results"
               onChange={e => this.props.onSearch(e.target.value)}
             />
-          </heading>
+          </header>
           <div className="listing">
             <h3>Locations in the City Centre</h3>
             <ol>

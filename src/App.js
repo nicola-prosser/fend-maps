@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { GoogleApiWrapper } from "google-maps-react";
+
 import "./App.css";
 import GlasgowMap from "./GlasgowMap.js";
 import Sidebar from "./Sidebar.js";
@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     activeMarker: {},
     artLocations: ArtLocations,
-    activeLocation: {}
+    activeLocation: ArtLocations[6]
   };
   updateActiveMarker = clickedMarker => {
     this.setState({
@@ -47,6 +47,4 @@ class App extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyA129edK8SHKOZZTNlznzqYF8zuNfSY6Pg"
-})(App);
+export default App;

@@ -12,6 +12,7 @@ const ArtLocations = [
   {
     id: 1,
     name: "Centre for Contemporary Arts (CCA)",
+    title: "Centre for Contemporary Arts (CCA)",
     image: {
       src: cca,
       alt:
@@ -28,6 +29,7 @@ const ArtLocations = [
   {
     id: 2,
     name: "Glasgow School of Art",
+    title: "Glasgow School of Art",
     image: {
       src: gsa,
 
@@ -44,6 +46,7 @@ const ArtLocations = [
   {
     id: 3,
     name: "Modern Institute",
+    title: "Modern Institute",
     image: {
       src: modern,
       alt:
@@ -60,6 +63,7 @@ const ArtLocations = [
   {
     id: 4,
     name: "Gallery of Modern Art (GOMA)",
+    title: "Gallery of Modern Art (GOMA)",
     image: {
       src: goma,
       alt: "The Gallery of Modern Art (GOMA) Exterior in Royal Exhange Square"
@@ -75,6 +79,7 @@ const ArtLocations = [
   {
     id: 5,
     name: "Lighthouse",
+    title: "Lighthouse",
     image: {
       src: lighthouse,
       alt: "An exterior shot of the Lighthouse frontage"
@@ -90,6 +95,7 @@ const ArtLocations = [
   {
     id: 6,
     name: "The Old Hairdressers",
+    title: "The Old Hairdressers",
     image: {
       src: hairdressers,
       alt: "The bar area of the Old Hairdressers"
@@ -105,6 +111,7 @@ const ArtLocations = [
   {
     id: 7,
     name: "Good Press",
+    title: "Good Press",
     image: {
       src: goodpress,
       alt: "An exterior image of the Good Press shop"
@@ -120,6 +127,7 @@ const ArtLocations = [
   {
     id: 8,
     name: "The Glasgow Art Club",
+    title: "The Glasgow Art Club",
     image: {
       src: artclub,
       alt: "The main hall of the Glasgow Art Club"
@@ -135,6 +143,7 @@ const ArtLocations = [
   {
     id: 9,
     name: "Trongate 103",
+    title: "Trongate 103",
     address: "103 Trongate, Glasgow G1 5HD",
     desc:
       "Trongate 103 is an arts resource for Glasgow, housed over six stories of a former Edwardian warehouse.",
