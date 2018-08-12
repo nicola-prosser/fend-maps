@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 
+body {
+  overflow: hidden;
+}
 .menu-title {
   font-size: 30px;
   font-family: "Roboto Slab", sans-serif;
@@ -28,6 +31,7 @@
 .menu {
   width: 300px;
   position: absolute;
+  overflow: auto;
 }
 
 input {
@@ -58,6 +62,31 @@ ol {
 
 .listing li.active {
   color: #ea3d3d;
+}
+
+.listing {
+}
+
+.credit {
+  position: fixed;
+  bottom: 0;
+  color: white;
+  margin-left: 30px;
+  background-color: #0e061f;
+  width: 300px;
+  text-align: left;
+}
+
+.credit p {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+}
+
+a {
+  color: white;
 }
 
 @media only screen and (max-width: 750px) {

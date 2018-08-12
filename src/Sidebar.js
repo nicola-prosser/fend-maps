@@ -61,6 +61,12 @@ class Sidebar extends Component {
             </ol>
           </div>
         </div>
+        <footer className="credit">
+          <p>
+            Data provided by <a href="https://foursquare.com/">Foursquare</a> |
+            2018
+          </p>
+        </footer>
       </nav>
     );
   }

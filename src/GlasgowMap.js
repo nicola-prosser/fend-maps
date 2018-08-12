@@ -37,19 +37,24 @@ export class GlasgowMap extends Component {
   // store all the Marker instances in an array
   markers = [];
 
+  gm_authFailure() {
+    window.alert("Google Maps error!");
+  }
+
   componentDidMount() {
+    window.gm_authFailure = this.gm_authFailure;
     // Show InfoWinodw for the initial activeLocation
     // Run in next tick of the event loop so that the reference's marker obejct is fully initialised
     const activeIndex = this.props.locations.indexOf(this.props.activeLocation);
     if (activeIndex === -1) return;
-    const instance = this.markers[activeIndex];
-    instance.markerPromise.then(marker => {
-      console.log(marker);
-      this.handleMarkerClick(
-        this.props.locations[activeIndex],
-        this.markers[activeIndex].marker
-      );
-    });
+    const location = this.props.locations[activeIndex];
+    setTimeout(() => {
+      const marker = this.markers[activeIndex].marker;
+      marker.setMap = () => {};
+      // Prevent google-maps-react from detaching the marker from the map when the icon changes
+      //https://github.com/fullstackreact/google-maps-react/blob/master/src/components/Marker.js#L42
+      this.handleMarkerClick(location, marker);
+    }, 0);
   }
 
   handleMarkerClick = (props, marker) =>
@@ -68,8 +73,8 @@ export class GlasgowMap extends Component {
         google={this.props.google}
         zoom={14}
         initialCenter={{
-          lat: 55.86116,
-          lng: -4.253887
+          lat: 55.86275,
+          lng: -4.2625
         }}
       >
         <Markers

@@ -10,16 +10,22 @@ The full list of locations and all markers are available when the page loads. Yo
 
 Click on location in the list or on a marker to open the information box to see the name of the location and its address.
 
-###Get Started
+### Get Started
+
 Clone this repository
 Use cd in the terminal go to the root of the repository
 Run npm install
 Run npm start
 The application will open in your browser at the address: localhost:3000
 
-###Dependencies
+To run service worker use npm run serve
+Go to localhost:3000
+
+### Dependencies
+
 You will need npm
 The project was built using React
 The project was bootstrapped with create-react-app
+Information is from the Foursquare API
 The map uses Google Maps API
 It also uses google-maps-react (PLEASE NOTE: I would not recommend this package)
