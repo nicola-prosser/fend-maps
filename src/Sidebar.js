@@ -43,7 +43,7 @@ class Sidebar extends Component {
             />
           </header>
           <div className="listing">
-            <h3>Locations in the City Centre</h3>
+            <h3>Locations</h3>
             <ol>
               {this.props.locations.map(location => (
                 <li

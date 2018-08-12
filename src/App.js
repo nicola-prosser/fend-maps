@@ -28,6 +28,12 @@ class App extends Component {
     });
   };
 
+  onInfoWindowClose = () => {
+    this.setState({
+      activeLocation: {}
+    });
+  };
+
   componentDidMount() {
     const apiurl =
       "https://api.foursquare.com/v2/venues/search?ll=55.8,-4.3&intent=browse&query=art&radius=20000&client_id=%2035DLQNHZ1021OEEMGEA4R3PF5MKJP2T3MKJOGC5DJA0XYPTN&client_secret=%20JPTIPWUYVLWOCNB2IIVSRTM0QOIQXLDELZH1XJGYASCVRHQ5&v=20180809";
@@ -39,23 +45,20 @@ class App extends Component {
         venues.map(venue => ({
           id: venue.id,
           name: venue.name,
-          image: {
-            src:
-              "https://static1.squarespace.com/static/51af9b9be4b07ac195fca7ca/t/52402d88e4b0019d4f5ebea9/1517932789568/CCA+Foyer.jpg",
-            alt:
-              "The Main enterance for the CCA -showing the reception and Welcome Home, the CCA shop"
-          },
           position: venue.location,
           address: venue.location.address,
-          desc:
-            "The Centre for Contemporary Arts has a year-round programme includes exhibitions, film, music, literature, spoken word, festivals, Gaelic and performance."
+          neighborhood: venue.location.neighborhood,
+          postalCode: venue.location.postalCode
         }))
       )
       .then(venues =>
         this.setState({
           artLocations: venues
         })
-      );
+      )
+      .catch(function(error) {
+        window.alert("Sorry, Foursqaure can't load right now");
+      });
   }
 
   render() {
@@ -69,7 +72,7 @@ class App extends Component {
           onSearch={this.setSearchTerm}
         />
         <GlasgowMap
-          key={this.state.activeLocation}
+          onInfoWindowClose={this.onInfoWindowClose}
           role="application"
           tabIndex={-1}
           activeLocation={this.state.activeLocation}

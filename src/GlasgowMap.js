@@ -23,11 +23,6 @@ const Markers = props =>
   ));
 
 export class GlasgowMap extends Component {
-  static defaultMap = {
-    center: { lat: 55.86116, lng: -4.253887 },
-    zoom: 13
-  };
-
   state = {
     showingInfoWindow: false,
     activeMarker: {},
@@ -38,7 +33,7 @@ export class GlasgowMap extends Component {
   markers = [];
 
   gm_authFailure() {
-    window.alert("Google Maps error!");
+    window.alert("Sorry there's been a Google Maps error");
   }
 
   componentDidMount() {
@@ -72,6 +67,10 @@ export class GlasgowMap extends Component {
       showingInfoWindow: true
     });
 
+  changeMarker = () => {
+    this.props.onInfoWindowClose();
+  };
+
   render() {
     return (
       <Map
@@ -81,8 +80,8 @@ export class GlasgowMap extends Component {
         google={this.props.google}
         zoom={14}
         initialCenter={{
-          lat: 55.86275,
-          lng: -4.2625
+          lat: 55.8627,
+          lng: -4.28
         }}
       >
         <Markers
@@ -92,22 +91,15 @@ export class GlasgowMap extends Component {
           locations={this.props.locations}
         />
         <InfoWindow
+          onClose={this.changeMarker}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          <div>
+          <div className="info">
             <h2>{this.state.selectedPlace.name}</h2>
             <p>{this.state.selectedPlace.address}</p>
-
-            <div>
-              {this.state.selectedPlace.image && (
-                <img
-                  src={this.state.selectedPlace.image.src}
-                  alt={this.state.selectedPlace.image.alt}
-                  className="info-image"
-                />
-              )}
-            </div>
+            <p>{this.state.selectedPlace.neighborhood}</p>
+            <p>{this.state.selectedPlace.postalCode}</p>
           </div>
         </InfoWindow>
       </Map>

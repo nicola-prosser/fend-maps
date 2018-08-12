@@ -60,11 +60,12 @@ ol {
   padding-left: 30px;
 }
 
-.listing li.active {
+.listing li:hover {
   color: #ea3d3d;
 }
 
 .listing {
+  height: 700px;
 }
 
 .credit {

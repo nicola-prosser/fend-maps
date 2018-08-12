@@ -18,3 +18,7 @@ h2 {
   font-family: "Roboto Slab", sans-serif;
   font-size: 25px;
 }
+
+.info h2 {
+  font-size: 15px;
+}
