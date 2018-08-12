@@ -22,3 +22,19 @@ h2 {
 .info h2 {
   font-size: 15px;
 }
+
+.loading-container {
+  background-color: #0e061f;
+  opacity: 0.9;
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+  position: fixed;
+  text-align: center;
+}
+
+.loading-container p {
+  color: white;
+  font-size: 20px;
+  text-align: centre;
+}

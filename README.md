@@ -19,7 +19,7 @@ Run npm start
 The application will open in your browser at the address: localhost:3000
 
 To run service worker use npm run serve
-Go to localhost:3000
+Go to localhost:5000
 
 ### Dependencies
 
@@ -28,4 +28,4 @@ The project was built using React
 The project was bootstrapped with create-react-app
 Information is from the Foursquare API
 The map uses Google Maps API
-It also uses google-maps-react (PLEASE NOTE: I would not recommend this package)
+It also uses google-maps-react

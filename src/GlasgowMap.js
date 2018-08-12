@@ -5,6 +5,11 @@ import markerIcon from "./icons/marker.png";
 import markerActive from "./icons/markeractive.png";
 
 // managed to make the markers work with the help of this comment https://github.com/fullstackreact/google-maps-react/issues/51#issuecomment-410825880
+const LoadingContainer = props => (
+  <div className="loading-container">
+    <p>Sorry, Google maps cannae load right now</p>
+  </div>
+);
 const Markers = props =>
   props.locations.map((location, index) => (
     <Marker
@@ -33,7 +38,7 @@ export class GlasgowMap extends Component {
   markers = [];
 
   gm_authFailure() {
-    window.alert("Sorry there's been a Google Maps error");
+    window.alert("Sorry! there's been a Google Maps error");
   }
 
   componentDidMount() {
@@ -108,5 +113,6 @@ export class GlasgowMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyA129edK8SHKOZZTNlznzqYF8zuNfSY6Pg"
+  apiKey: "AIzaSyA129edK8SHKOZZTNlznzqYF8zuNfSY6Pg",
+  LoadingContainer: LoadingContainer
 })(GlasgowMap);

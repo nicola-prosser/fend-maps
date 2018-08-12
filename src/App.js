@@ -57,7 +57,7 @@ class App extends Component {
         })
       )
       .catch(function(error) {
-        window.alert("Sorry, Foursqaure can't load right now");
+        window.alert("Sorry, Foursquare can't load right now");
       });
   }
 

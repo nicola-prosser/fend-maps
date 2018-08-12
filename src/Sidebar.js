@@ -19,7 +19,6 @@ class Sidebar extends Component {
         <img
           src={menuIcon}
           role="menu"
-          aria-label="button"
           alt="hambuger menu icon, opens sidebar"
           className="menu-icon"
           onClick={() => {
