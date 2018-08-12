@@ -3,18 +3,16 @@ import React, { Component } from "react";
 import "./App.css";
 import GlasgowMap from "./GlasgowMap.js";
 import Sidebar from "./Sidebar.js";
-import ArtLocations from "./ArtLocations.js";
 
 class App extends Component {
   state = {
-    activeMarker: {},
     artLocations: [],
     activeLocation: {},
     searchTerm: ""
   };
-  updateActiveMarker = clickedMarker => {
+  setActiveLocation = activeLocation => {
     this.setState({
-      activeMarker: clickedMarker
+      activeLocation: activeLocation
     });
   };
 
@@ -61,21 +59,22 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.activeLocation);
     return (
       <div className="App">
         <Sidebar
           locations={this.getFilteredArtLocations()}
-          onSelectMarker={this.updateActiveMarker}
-          activeMarker={this.state.activeMarker}
+          onSelectLocation={this.setActiveLocation}
+          activeLocation={this.state.activeLocation}
           onSearch={this.setSearchTerm}
         />
         <GlasgowMap
+          key={this.state.activeLocation}
           role="application"
           tabIndex={-1}
           activeLocation={this.state.activeLocation}
           locations={this.state.artLocations}
           onSelectMarker={this.updateActiveMarker}
-          activeMarker={this.state.activeMarker}
         />
       </div>
     );

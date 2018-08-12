@@ -49,10 +49,10 @@ class Sidebar extends Component {
                 <li
                   tabIndex="0"
                   role="button"
-                  onClick={() => this.props.onSelectMarker(location)}
+                  onClick={() => this.props.onSelectLocation(location)}
                   key={location.id}
                   className={
-                    location.id === this.props.activeMarker.id ? "active" : ""
+                    location.id === this.props.activeLocation.id ? "active" : ""
                   }
                 >
                   {location.name}

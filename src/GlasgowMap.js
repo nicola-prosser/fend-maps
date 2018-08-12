@@ -43,7 +43,15 @@ export class GlasgowMap extends Component {
 
   componentDidMount() {
     window.gm_authFailure = this.gm_authFailure;
-    // Show InfoWinodw for the initial activeLocation
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log("update");
+
+    if (this.props.activeLocation === prevProps.activeLocation) {
+      return;
+    }
+    // Show InfoWindow for the initial activeLocation
     // Run in next tick of the event loop so that the reference's marker obejct is fully initialised
     const activeIndex = this.props.locations.indexOf(this.props.activeLocation);
     if (activeIndex === -1) return;
